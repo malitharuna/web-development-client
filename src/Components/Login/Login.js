@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
+import { FaGoogle, FaGithub, FaRegTimesCircle } from 'react-icons/fa';
 import { AuthContext } from '../../contexts/AuthProvider';
 import Navbar from '../Navbar/Navbar';
 
 const Login = () => {
-    const {signIn, googleRegister} = useContext(AuthContext);
+    const {signIn, googleRegister, gitHubRegister} = useContext(AuthContext);
     const Navigate= useNavigate();
-    const location = useLocation()
-  const from = location.state?.from.pathname || '/'
+    const location = useLocation();
+    const from = location.state?.from.pathname || '/';
+    const [showModal, setShowModal] = useState(false);
 
     const loginHandler = (e) => {
         e.preventDefault()
@@ -42,9 +44,22 @@ const Login = () => {
           })
       }
 
+      const gitHubHandler = () => {
+        gitHubRegister()
+          .then(result => {
+            const user = result.user
+            console.log(user);
+            swal.fire('SignIn Successful', '', 'success')
+            Navigate(from, { replace: true })
+          })
+          .catch(error => {
+            swal.fire(`${error.message}`, ``, `error`)
+          })
+      }
+
     return (
         <>
-        <Navbar></Navbar>
+        {/* <Navbar></Navbar> */}
         <div className='flex justify-center relative h-[90vh]'>
           <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 my-auto dark:bg-gray-400 dark:text-gray-900">
             <div className="mb-8 text-center">
@@ -72,7 +87,7 @@ const Login = () => {
             <div>
               <div className='mt-5 mb-3 flex justify-center'>
                 <button onClick={googleHandler} className=' rounded-md'> <FaGoogle className='w-10 h-6 hover:text-blue-600 font-bold' /></button>
-                <button onClick={gitHubHandle} className='rounded-md'> <FaGithub className='w-10 h-7 hover:text-blue-600 font-bold' /></button>
+                <button onClick={gitHubHandler} className='rounded-md'> <FaGithub className='w-10 h-7 hover:text-blue-600 font-bold' /></button>
               </div>
               <p className="px-6 text-sm text-center dark:text-gray-900">Don't have an account yet?
                 <a rel="noopener noreferrer" href="/register" className="hover:underline dark:text-indigo-800"> Create Account</a>.
@@ -90,13 +105,13 @@ const Login = () => {
                   </svg><span>Reset Your Password</span>
                   <button onClick={() => { setShowModal(false) }} className='ml-20'><FaRegTimesCircle className=' h-8 w-8' /></button>
                 </h2>
-                <div>
+                {/* <div>
                   <label htmlFor='email' className="block mb-2 text-sm text-left">Email address</label>
                   <input onBlur={resetEmail} type="email" name="email" id="email" placeholder="leroy@jenkins.com" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900" />
                 </div>
                 <div className="flex flex-col justify-end gap-3 mt-6 sm:flex-row">
                   <button onClick={resetPassword} className="px-6 py-2 rounded-sm shadow-sm dark:bg-indigo-400 dark:text-gray-900">Reset your password</button>
-                </div>
+                </div> */}
               </div> : null
             }
           </>

@@ -1,0 +1,53 @@
+[
+    {
+    "id": 1,
+    "title": "HTML",
+    "description": "Start at the beginning by learning HTML basics — an important foundation for building and editing web pages. Fun fact: all websites use HTML — even this one. It’s a fundamental part of every web developers toolkit. HTML provides the content that gives web pages structure, by using elements and tags, you can add text, images, videos, forms, and more. Learning HTML basics is an important first step in your web development journey and an essential skill for front- and back-end developers.",
+    "price": 5000,
+    "discountPercentage": "not available",
+    "category": "basic web development",
+    "thumbnail": "https://i.dummyjson.com/data/products/7/thumbnail.jpg",
+    "images": "https://cdn.hackr.io/uploads/posts/large/1582104017JvTCRiVe0D.png"  
+    },
+    {
+    "id": 2,
+    "title": "CSS",
+    "description": "Start at the beginning by learning HTML basics — an important foundation for building and editing web pages. Fun fact: all websites use HTML — even this one. It’s a fundamental part of every web developers toolkit. HTML provides the content that gives web pages structure, by using elements and tags, you can add text, images, videos, forms, and more. Learning HTML basics is an important first step in your web development journey and an essential skill for front- and back-end developers.",
+    "price": 5000,
+    "discountPercentage": "not available",
+    "category": "basic web development",
+    "thumbnail": "https://i.dummyjson.com/data/products/7/thumbnail.jpg",
+    "images": "https://cdn.hackr.io/uploads/posts/large/1582104017JvTCRiVe0D.png"  
+    },
+    {
+    "id": 3,
+    "title": "JavaScript",
+    "description": "Start at the beginning by learning HTML basics — an important foundation for building and editing web pages. Fun fact: all websites use HTML — even this one. Its a fundamental part of every web developers toolkit. HTML provides the content that gives web pages structure, by using elements and tags, you can add text, images, videos, forms, and more. Learning HTML basics is an important first step in your web development journey and an essential skill for front- and back-end developers.",
+    "price": 10000,
+    "discountPercentage": "not available",
+    "category": "basic web development",
+    "thumbnail": "https://i.dummyjson.com/data/products/7/thumbnail.jpg",
+    "images": "https://cdn.hackr.io/uploads/posts/large/1582104017JvTCRiVe0D.png"  
+    },
+    {
+    "id": 4,
+    "title": "React",
+    "description": "Start at the beginning by learning HTML basics — an important foundation for building and editing web pages. Fun fact: all websites use HTML — even this one. Its a fundamental part of every web developers toolkit. HTML provides the content that gives web pages structure, by using elements and tags, you can add text, images, videos, forms, and more. Learning HTML basics is an important first step in your web development journey and an essential skill for front- and back-end developers.",
+    "price": 10000,
+    "discountPercentage": "not available",
+    "category": "basic web development",
+    "thumbnail": "https://i.dummyjson.com/data/products/7/thumbnail.jpg",
+    "images": "https://cdn.hackr.io/uploads/posts/large/1582104017JvTCRiVe0D.png"  
+    },
+    {
+    "id": 4,
+    "title": "TypeScript",
+    "description": "Start at the beginning by learning HTML basics — an important foundation for building and editing web pages. Fun fact: all websites use HTML — even this one. Its a fundamental part of every web developers toolkit. HTML provides the content that gives web pages structure, by using elements and tags, you can add text, images, videos, forms, and more. Learning HTML basics is an important first step in your web development journey and an essential skill for front- and back-end developers.",
+    "price": 10000,
+    "discountPercentage": "not available",
+    "category": "basic web development",
+    "thumbnail": "https://i.dummyjson.com/data/products/7/thumbnail.jpg",
+    "images": "https://cdn.hackr.io/uploads/posts/large/1582104017JvTCRiVe0D.png"  
+    }
+
+]

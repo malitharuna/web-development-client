@@ -65,7 +65,7 @@ const Navbar = () => {
                                         : "font-medium text-xl tracking-wide text-gray-900 transition-colors duration-200 hover:text-teal-accent-400"
                                 }
                             >
-                                Course
+                                Courses
                             </NavLink>
                         </li>
                         <li>

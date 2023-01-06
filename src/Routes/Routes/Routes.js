@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Login from "../../Components/Login/Login";
 import Main from "../../layout/Main";
 // import NotFound from "../../pages/404page/NotFound";
 // import Category from "../../Pages/Category/Category/Category";
@@ -25,10 +26,10 @@ export const routes = createBrowserRouter([
             //     element: <Category></Category>,
             //     // loader: ({params}) => fetch(`https://dragon-news-server-seven.vercel.app/category/${params.id}`)
             // },
-            // {
-            //     path: '/login',
-            //     element: <Login></Login>
-            // },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
             // {
             //     path:'/register',
             //     element: <Register></Register>
