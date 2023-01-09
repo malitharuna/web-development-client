@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import NotFound from "../../Components/404page/NotFound";
 import Blogs from "../../Components/Blogs/Blogs";
 import Categories from "../../Components/Categories/Categories";
+import CourseCard from "../../Components/CourseCard/CourseCard";
+import Courses from "../../Components/Courses/Courses";
 import Home from "../../Components/Home/Home";
 import Login from "../../Components/Login/Login";
 import Register from "../../Components/Register/Register";
@@ -25,12 +27,17 @@ export const routes = createBrowserRouter([
             {
                 path: '/home',
                 element: <Home />,
-                // loader: () => fetch('https://assignment-10-server-hksyjnu4u-sujonmia5.vercel.app/allCourse')
+                loader: () => fetch('http://localhost:3000/allCourse')
+            },
+            {
+                path: '/course',
+                element: <CourseCard></CourseCard>,
+                loader: () => fetch('http://localhost:3000/allCourse')
             },
             {
                 path: '/category/:id',
-                element: <Categories></Categories>,
-                // loader: ({params}) => fetch(`https://dragon-news-server-seven.vercel.app/category/${params.id}`)
+                element: <Courses></Courses>,
+                loader: ({params}) => fetch(`http://localhost:3000/${params.id}`)
             },
           
         ]

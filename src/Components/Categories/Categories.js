@@ -14,15 +14,11 @@ const Categories = () => {
     return (
         <div>
             {
-                categories.map(category => <p key={category.category_id}>
-                    <Link>{}</Link>
-                </p>
-                    // <NavLink key={category.category_id} to={`/categories/`}>
-                    //     <ol className='font-semibold'>
-                    //         <li>{category.name}</li>
-                    //     </ol>
-                    // </NavLink>
-                    ) 
+                categories.map(category => <p className='font-bold' key={category.category_id}>
+                    <Link to={`category/${category.category_id}`}>
+                        {category.name}
+                    </Link>
+                </p>)   
             }
          
         </div>
