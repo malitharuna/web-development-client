@@ -6,12 +6,14 @@ import { FaGoogle, FaGithub, FaRegTimesCircle } from 'react-icons/fa';
 import { AuthContext } from '../../contexts/AuthProvider';
 import Navbar from '../Navbar/Navbar';
 
+
 const Login = () => {
-    const {signIn, googleRegister, gitHubRegister} = useContext(AuthContext);
+    const {signIn, googleRegister, gitHubRegister, forgetPassword} = useContext(AuthContext);
     const Navigate= useNavigate();
     const location = useLocation();
     const from = location.state?.from.pathname || '/';
     const [showModal, setShowModal] = useState(false);
+    const [emailReset, setEmailReset] = useState()
 
     const loginHandler = (e) => {
         e.preventDefault()
@@ -20,6 +22,7 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
         signIn(email, password)
+       
           .then(result => {
             const user = result.user;
             // console.log(user);
@@ -27,7 +30,7 @@ const Login = () => {
             Navigate(from, { replace: true })
           })
           .catch(error => {
-            swal.fire(`${error.message}`, ``, `error`)
+            swal(`${error.message}`, ``, `error`)
           })
       }
 
@@ -36,11 +39,11 @@ const Login = () => {
           .then(result => {
             const user = result.user
             console.log(user);
-            swal.fire('SignIn Successful', '', 'success')
+            swal('SignIn Successful', '', 'success')
             Navigate(from, { replace: true })
           })
           .catch(error => {
-            swal.fire(`${error.message}`, ``, `error`)
+            swal(`${error.message}`, ``, `error`)
           })
       }
 
@@ -49,37 +52,52 @@ const Login = () => {
           .then(result => {
             const user = result.user
             console.log(user);
-            swal.fire('SignIn Successful', '', 'success')
+            swal('SignIn Successful', '', 'success')
             Navigate(from, { replace: true })
           })
           .catch(error => {
-            swal.fire(`${error.message}`, ``, `error`)
+            swal(`${error.message}`, ``, `error`)
           })
+      }
+
+      const resetEmail = (e) => [
+        setEmailReset(e.target.value)
+      ]  
+
+      const resetPassword = () => {
+        forgetPassword(emailReset)
+          .then(() => {
+            swal('Check your Inbox', '', 'question')
+          })
+          .catch((error) => {
+            swal(`${error.message}`, ``, `error`)
+          })
+        setShowModal(false)
       }
 
     return (
         <>
-        {/* <Navbar></Navbar> */}
+        <Navbar></Navbar>
         <div className='flex justify-center relative h-[90vh]'>
-          <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 my-auto dark:bg-gray-400 dark:text-gray-900">
+          <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 my-auto bg-blue-300 dark:bg-gray-400 dark:text-gray-900">
             <div className="mb-8 text-center">
-              <h1 className="my-3 text-4xl font-bold">Login Account</h1>
+              <h1 className="my-3 text-4xl font-bold">Login</h1>
               <p className="text-sm dark:text-gray-400">Log in to access your account</p>
             </div>
             <form onSubmit={loginHandler} className="space-y-12 ng-untouched ng-pristine ng-valid">
               <div className="space-y-4">
                 <div>
-                  <label htmlFor='email' className="block mb-2 text-sm text-left">Email address</label>
+                  <label htmlFor='email' className="block mb-2  text-left">Email address</label>
                   <input type="email" name="email" id="email" placeholder="leroy@jenkins.com" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900" />
                 </div>
                 <div>
                   <div className="flex justify-between mb-2">
-                    <label htmlFor='password' className="text-sm">Password</label>
+                    <label htmlFor='password'>Password</label>
                     <Link onClick={() => setShowModal(true)} className="text-xs hover:underline dark:text-gray-900">Forgot password?</Link>
                   </div>
                   <input type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900" />
                   <div>
-                    <button type="submit" className="w-full mt-4 px-8 py-3 font-semibold rounded-md dark:bg-indigo-500 hover:bg-indigo-600 dark:text-gray-100">Login</button>
+                    <button type="submit" className="w-full mt-4 px-8 py-3 font-bold rounded-md dark:bg-indigo-500 bg-blue-600 hover:bg-blue-400 dark:text-gray-100">Login</button>
                   </div>
                 </div>
               </div>
@@ -105,13 +123,13 @@ const Login = () => {
                   </svg><span>Reset Your Password</span>
                   <button onClick={() => { setShowModal(false) }} className='ml-20'><FaRegTimesCircle className=' h-8 w-8' /></button>
                 </h2>
-                {/* <div>
+                <div>
                   <label htmlFor='email' className="block mb-2 text-sm text-left">Email address</label>
-                  <input onBlur={resetEmail} type="email" name="email" id="email" placeholder="leroy@jenkins.com" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900" />
+                  <input onBlur={resetEmail} type="email" name="email" id="email" placeholder="omul@ot muk.com" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900" />
                 </div>
                 <div className="flex flex-col justify-end gap-3 mt-6 sm:flex-row">
                   <button onClick={resetPassword} className="px-6 py-2 rounded-sm shadow-sm dark:bg-indigo-400 dark:text-gray-900">Reset your password</button>
-                </div> */}
+                </div>
               </div> : null
             }
           </>

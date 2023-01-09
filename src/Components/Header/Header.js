@@ -15,10 +15,9 @@ const Header = () => {
                     <h1 className="text-5xl font-bold leading-none sm:text-6xl">Build
                         <span className="dark:text-red-500"> Carrier</span> With Web Developing Course
                     </h1>
-                    <p className="mt-6 mb-8 text-lg sm:mb-12">We don't build only Website 
-                        <br className="hidden md:inline lg:hidden" />We also Shape your  ambitius 
-                        
-                        Dreams
+                    <p className="mt-6 mb-8 text-lg sm:mb-12">We don't build only Website . 
+                        <br className="hidden md:inline lg:hidden" /> We also Shape your  ambitious 
+                        Dreams.
                     </p>
                     <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
                         {
