@@ -2,10 +2,11 @@ import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 
-const Courses = () => {
+const Course = ({}) => {
      const data = useLoaderData()
-     console.log(data);
-    const {name, price, picture, details, category_id, Instructor, rating}  = data
+     console.log(0);
+    const {name, price, picture, details, category_id, Instructor, rating}  = data;
+    
 
     return (
           <div className="px-4 shadow-lg w-auto py-10 rounded-lg mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl ">
@@ -29,13 +30,13 @@ const Courses = () => {
                         {details}
                     </p>
                     <div className='flex flex-col-reverse text-gray-900 md:flex-row mx-auto justify-around md:mt-5'>
-                        <div className='flex content-center'>
+                        {/* <div className='flex content-center'>
                             <img className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500" src={Instructor.img} alt="" />
                             <div className='ml-3'>
                                 <p className='font-medium'>Author Name</p>
                                 <p> {Instructor.name}</p>
                             </div>
-                        </div>
+                        </div> */}
                         <div className='flex justify-between items-center mb-3 md:mt-0'>
                             <p className='text-blue-700 font-medium mr-11'>Price: {price}</p>
                             <p className='text-blue-700 inline-flex relative'>Rating: {rating}<FaStar className='text-yellow-500 absolute right-[-18px] top-1' /></p>
@@ -50,4 +51,4 @@ const Courses = () => {
     );
 };
 
-export default Courses;
+export default Course;

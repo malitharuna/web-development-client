@@ -9,7 +9,7 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const Navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-console.log(user);
+    console.log(user);
 
     const logOutHandler = () => {
         logOut()
@@ -56,16 +56,16 @@ console.log(user);
                             </li>
                             <li>
                                 <NavLink
-                                    to="/courses"
-                                    aria-label="Courses"
-                                    title="Courses"
+                                    to="/course"
+                                    aria-label="course"
+                                    title="course"
                                     className={({ isActive }) =>
                                         isActive
                                             ? "text-red-600  bg-gray-300 p-2 rounded font-medium text-xl tracking-wide hover:text-teal-accent-400"
                                             : "font-medium text-xl tracking-wide text-gray-900 transition-colors duration-200 hover:text-teal-accent-400"
                                     }
                                 >
-                                    Courses
+                                    Course
                                 </NavLink>
                             </li>
                             <li>
@@ -262,7 +262,7 @@ console.log(user);
                                                     Profile
                                                 </NavLink>
                                             </li>
-                                            <Categories></Categories>
+                                           
                                             <li>
                                                 <NavLink
                                                     to="/about"

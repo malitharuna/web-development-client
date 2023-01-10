@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Cart from '../Cart/Cart';
 
 const CourseCard = () => {
     const course = useLoaderData()
@@ -12,7 +13,7 @@ const CourseCard = () => {
         </div>
         <div className='grid md:grid-cols-2 lg:grid-cols-3 mb-10 justify-center gap-6'>
             {
-                // course.map(c => <Cart key={c.category_id} course={c}></Cart>)
+                course.map(c => <Cart key={c.category_id} course={c}></Cart>)
             }
         </div>
     </div>
