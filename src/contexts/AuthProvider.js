@@ -34,8 +34,8 @@ const AuthProvider = ({ children }) => {
         return sendPasswordResetEmail(auth, email)
     }
 
-    const updateUserProfile = (profile) => {
-        return updateProfile(auth.currentUser, profile);
+    const updateUserProfile = (name, photoUrl, number) => {
+        return updateProfile(auth.currentUser, {displayName: name, photoURL: photoUrl,PhoneNumber: number});
     }
 
     const verifyEmail = () =>{
@@ -49,11 +49,10 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            // console.log('inside auth state change', currentUser);
-
-            if(currentUser === null){
+            console.log('inside auth state change', currentUser);
+           
                 setUser(currentUser);
-            }
+          
             setLoading(false);
         });
         return () => unsubscribe();
@@ -63,7 +62,7 @@ const AuthProvider = ({ children }) => {
         user, 
         loading, 
         signIn,
-        logOut, 
+        logOut,  
         createUser,  
         googleRegister,
         gitHubRegister,

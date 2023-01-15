@@ -7,9 +7,12 @@ import swal from 'sweetalert';
 
 const Register = () => {
     const location = useLocation()
-    const from = location.state?.from.pathname || '/'
+    const from = location.state?.from.pathname || '/';
     const [error, setError] = useState('')
-    const { createUser, logOut, updateUserProfile, verifyMail, googleRegister, gitHubRegister } = useContext(AuthContext)
+    const { createUser, logOut, updateUserProfile, verifyEmail, googleRegister, gitHubRegister 
+    
+    
+    } = useContext(AuthContext)
     // console.log(user);
     const Navigate = useNavigate()
 
@@ -23,11 +26,11 @@ const Register = () => {
         console.log(name, email, password);
         createUser(email, password)
             .then(result => {
-                const user= result.user
+                const user = result.user
                 updateUserProfile(name, photoUrl)
                     .then(() => { })
                     .catch(() => { })
-                verifyMail()
+                verifyEmail()
                     .then(() => { })
                     .catch(() => { })
                 swal('Account create Successful', 'Check your email and verify', "success")
@@ -45,7 +48,7 @@ const Register = () => {
         googleRegister()
             .then(result => {
                 const user = result.user;
-                // Swal.fire('Account create Successful', '', "success")
+                swal('Account create Successful', '', "success")
                 Navigate(from, { replace: true })
             })
             .catch(error => {
@@ -56,7 +59,7 @@ const Register = () => {
         gitHubRegister()
             .then(result => {
                 const user = result.user;
-                // Swal.fire('Account create Successful', '', "success")
+                swal('Account create Successful', '', "success")
                 Navigate(from, { replace: true })
             })
             .catch(error => {
@@ -84,7 +87,7 @@ const Register = () => {
                             </div>
                             <div>
                                 <label htmlFor="email" className="block mb-2 text-left">Email Address</label>
-                                <input type="email" name="email" id="email" placeholder="omuk@jtomuk.com" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900" />
+                                <input type="email" name="email" id="email" placeholder="omuk@tomuk.com" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900" />
                             </div>
                             <div>
                                 <div className="flex justify-between mb-2">
@@ -99,12 +102,12 @@ const Register = () => {
                         </div>
                     </form>
                     <div>
-                        <div className='mt-5 mb-3 flex justify-between'>
-                            <button onClick={googleHandler} className=' rounded-md'> <FaGoogle className='w-10 h-6 ml-10 hover:text-blue-600 font-bold' /> Login with Google</button>
-                            <button onClick={gitHubHandler} className='rounded-md'> <FaGithub className='w-10 h-7 ml-10 hover:text-blue-600 font-bold' />Login With GitHub</button>
+                        <div className='mt-5 mb-3 flex justify-between ml-51'>
+                            <button onClick={googleHandler} className=' rounded-md'> <FaGoogle className='w-10 h-6  hover:text-blue-600 font-bold' />  Google</button>
+                            <button onClick={gitHubHandler} className='rounded-md'> <FaGithub className='w-10 h-7  hover:text-blue-600 font-bold' /> GitHub</button>
                         </div>
                         <p className="px-6 text-sm text-center dark:text-gray-900">Already have an Account?
-                            <a rel="noopener noreferrer" href="/login" className="hover:underline dark:text-indigo-800"> Login</a>.
+                            <a rel="noopener noreferrer" href="/login" className="hover:underline dark:text-indigo-800"> Login</a>
                         </p>
                     </div>
                 </div>

@@ -1,32 +1,32 @@
-import React, { useState } from 'react';
-import { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import profileavatar from '../../assets/profilepic.jpg';
+import profilepic from '../../assets/profilepic.jpg'
 import { AuthContext } from '../../contexts/AuthProvider';
 import Categories from '../Categories/Categories';
+import swal from 'sweetalert';
 
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext);
-    const Navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const Navigate = useNavigate()
+    const { user, logOut } = useContext(AuthContext)
+    const [toggle, setToggle] = useState(false)
     console.log(user);
 
-    const logOutHandler = () => {
+    const logOutHandle = () => { 
         logOut()
             .then(() => {
                 Navigate('/login')
             })
             .catch((error) => {
-                console.error(error); // have to give error alert or something
+                swal(`${error}`)
             })
     }
-
     return (
         <div className="dark:bg-white shadow-lg h-20">
             <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div className="relative flex items-center justify-between">
-                    <Link
-                        to="/"
+                    <a
+                        href="/"
                         aria-label="Company"
                         title="Company"
                         className="inline-flex text-gray-900 items-center"
@@ -35,9 +35,9 @@ const Navbar = () => {
                             <path d="M18.266 26.068l7.839-7.854 4.469 4.479c1.859 1.859 1.859 4.875 0 6.734l-1.104 1.104c-1.859 1.865-4.875 1.865-6.734 0zM30.563 2.531l-1.109-1.104c-1.859-1.859-4.875-1.859-6.734 0l-6.719 6.734-6.734-6.734c-1.859-1.859-4.875-1.859-6.734 0l-1.104 1.104c-1.859 1.859-1.859 4.875 0 6.734l6.734 6.734-6.734 6.734c-1.859 1.859-1.859 4.875 0 6.734l1.104 1.104c1.859 1.859 4.875 1.859 6.734 0l21.307-21.307c1.859-1.859 1.859-4.875 0-6.734z"></path>
                         </svg>
                         <span className="ml-2 text-2xl font-bold tracking-wide uppercase">
-                            Web Development Courses
+                            BD Developers
                         </span>
-                    </Link>
+                    </a>
                     <ul className="flex items-center hidden space-x-8 lg:flex">
                         <ul className="flex items-center hidden space-x-8 lg:flex">
                             <li>
@@ -47,7 +47,7 @@ const Navbar = () => {
                                     title="Home"
                                     className={({ isActive }) =>
                                         isActive
-                                            ? "text-red-600 bg-gray-400 p-2 rounded font-medium text-xl tracking-wide hover:text-teal-accent-400"
+                                            ? "text-red-600 font-medium text-xl tracking-wide hover:text-teal-accent-400"
                                             : "font-medium text-xl tracking-wide text-gray-900 transition-colors duration-200 hover:text-teal-accent-400"
                                     }
                                 >
@@ -57,11 +57,11 @@ const Navbar = () => {
                             <li>
                                 <NavLink
                                     to="/course"
-                                    aria-label="course"
-                                    title="course"
+                                    aria-label="Course"
+                                    title="Course"
                                     className={({ isActive }) =>
                                         isActive
-                                            ? "text-red-600  bg-gray-300 p-2 rounded font-medium text-xl tracking-wide hover:text-teal-accent-400"
+                                            ? "text-red-600 font-medium text-xl tracking-wide hover:text-teal-accent-400"
                                             : "font-medium text-xl tracking-wide text-gray-900 transition-colors duration-200 hover:text-teal-accent-400"
                                     }
                                 >
@@ -70,42 +70,42 @@ const Navbar = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to="/blogs"
-                                    aria-label="Blogs"
-                                    title="Blogs"
+                                    to="/blog"
+                                    aria-label="Blog"
+                                    title="Blog"
                                     className={({ isActive }) =>
                                         isActive
-                                            ? "text-red-600  bg-gray-300 p-2 rounded font-medium text-xl tracking-wide hover:text-teal-accent-400"
+                                            ? "text-red-600 font-medium text-xl tracking-wide hover:text-teal-accent-400"
                                             : "font-medium text-xl tracking-wide text-gray-900 transition-colors duration-200 hover:text-teal-accent-400"
                                     }
                                 >
-                                    Blogs
+                                    Blog
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink
-                                    to="/faq"
-                                    aria-label="FAQ"
-                                    title="FAQ"
+                                    to="/about us"
+                                    aria-label="about"
+                                    title="about us"
                                     className={({ isActive }) =>
                                         isActive
-                                            ? "text-red-600  bg-gray-300 p-2 rounded font-medium text-xl tracking-wide hover:text-teal-accent-400"
+                                            ? "text-red-600 font-medium text-xl tracking-wide hover:text-teal-accent-400"
                                             : "font-medium text-xl tracking-wide text-gray-900 transition-colors duration-200 hover:text-teal-accent-400"
                                     }
                                 >
-                                    FAQ
+                                    About Us
                                 </NavLink>
                             </li>
 
                         </ul>
                         {
-                            user?.uid? <>
+                            user?.uid ? <>
                                 <li>
                                     <div className="dropdown dropdown-end">
                                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                             <div className="w-10 shadow-xl rounded-full">
                                                 {
-                                                    user?.photoURL? <img title={`${user.displayName}`} src={user.photoURL} alt="" /> : <img src={profileavatar} alt="" />
+                                                    user?.photoURL ? <img title={`${user.displayName}`} src={user.photoURL} alt="" /> : <img src={profilepic} alt="" />
                                                 }
                                             </div>
                                         </label>
@@ -117,7 +117,7 @@ const Navbar = () => {
                                                 </Link>
                                             </li>
                                             <li>
-                                                <button onClick={logOutHandler}>Logout</button>
+                                                <button onClick={logOutHandle}>Logout</button>
                                             </li>
                                         </ul>
                                     </div>
@@ -128,11 +128,11 @@ const Navbar = () => {
                                         to="/login"
                                         className={({ isActive }) =>
                                             isActive
-                                                ? "text-red-600  bg-gray-300 p-2 rounded font-medium text-xl tracking-wide hover:text-teal-accent-400"
+                                                ? "text-red-600 font-medium text-xl tracking-wide hover:text-teal-accent-400"
                                                 : "font-medium text-xl tracking-wide text-gray-900 transition-colors duration-200 hover:text-teal-accent-400"
                                         }
-                                        aria-label="login"
-                                        title="Log in"
+                                        aria-label="Sign in"
+                                        title="Sign in"
                                     >
                                         Login
                                     </NavLink>
@@ -142,26 +142,26 @@ const Navbar = () => {
                                         to="/register"
                                         className={({ isActive }) =>
                                             isActive
-                                                ? "text-red-600  bg-gray-300 p-2 rounded font-medium text-xl tracking-wide hover:text-teal-accent-400"
+                                                ? "text-red-600 font-medium text-xl tracking-wide hover:text-teal-accent-400"
                                                 : "font-medium text-xl tracking-wide text-gray-900 transition-colors duration-200 hover:text-teal-accent-400"
                                         }
-                                        aria-label="register"
-                                        title="register"
+                                        aria-label="Sign up"
+                                        title="Sign up"
                                     >
                                         Register
                                     </NavLink>
                                 </li>
                             </>
                         }
-                        {/* <label htmlFor="Toggle1" className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
-                        <p className='text-indigo-500'>{toggle ? 'Dark' : 'Light'
-                        }</p>
-                        <span className="relative">
-                            <input id="Toggle1" onClick={() => setToggle(!toggle)} type="checkbox" className="hidden peer" />
-                            <div className="w-10 h-6 rounded-full shadow-inner dark:bg-gray-100 peer-checked:dark:bg-indigo-500"></div>
-                            <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-800"></div>
-                        </span>
-                    </label> */}
+                        <label htmlFor="Toggle1" className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
+                            <p className='text-indigo-500'>{toggle ? 'Dark' : 'Light'
+                            }</p>
+                            <span className="relative">
+                                <input id="Toggle1" onClick={() => setToggle(!toggle)} type="checkbox" className="hidden peer" />
+                                <div className="w-10 h-6 rounded-full shadow-inner dark:bg-gray-100 peer-checked:dark:bg-indigo-500"></div>
+                                <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-800"></div>
+                            </span>
+                        </label>
                     </ul>
                     <div className="lg:hidden">
                         <button
@@ -262,7 +262,7 @@ const Navbar = () => {
                                                     Profile
                                                 </NavLink>
                                             </li>
-                                           
+                                            <Categories></Categories>
                                             <li>
                                                 <NavLink
                                                     to="/about"
@@ -274,36 +274,18 @@ const Navbar = () => {
                                                             : "text-1xl text-gray-900 block font-bold text-start mx-auto mt-2 border p-3 rounded-lg bg-slate-300 hover:bg-slate-400"
                                                     }
                                                 >
-                                                    FAQ
+                                                    About us
                                                 </NavLink>
                                             </li>
                                             <li>
-                                                <NavLink
-                                                    to="/login"
-                                                    className={({ isActive }) =>
-                                                        isActive
-                                                            ? "text-red-600  bg-gray-300 p-2 rounded font-medium text-xl tracking-wide hover:text-teal-accent-400"
-                                                            : "font-medium text-xl tracking-wide text-gray-900 transition-colors duration-200 hover:text-teal-accent-400"
-                                                    }
-                                                    aria-label="Log in "
-                                                    title="Log in"
+                                                <a
+                                                    href="/"
+                                                    className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                                    aria-label="Sign up"
+                                                    title="Sign up"
                                                 >
-                                                    Login
-                                                </NavLink>
-                                            </li>
-                                            <li>
-                                                <NavLink
-                                                    to="/register"
-                                                    className={({ isActive }) =>
-                                                        isActive
-                                                            ? "text-red-600 bg-gray-300 p-2 rounded font-medium text-xl tracking-wide hover:text-teal-accent-400"
-                                                            : "font-medium text-xl tracking-wide text-gray-900 transition-colors duration-200 hover:text-teal-accent-400"
-                                                    }
-                                                    aria-label="register"
-                                                    title="register"
-                                                >
-                                                    Register
-                                                </NavLink>
+                                                    Sign up
+                                                </a>
                                             </li>
                                         </ul>
                                     </nav>

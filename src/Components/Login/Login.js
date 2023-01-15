@@ -26,7 +26,7 @@ const Login = () => {
           .then(result => {
             const user = result.user;
             // console.log(user);
-            swal.fire('SignIn Successful', '', 'success')
+            swal('SignIn Successful', '', 'success')
             Navigate(from, { replace: true })
           })
           .catch(error => {
@@ -87,7 +87,7 @@ const Login = () => {
             <form onSubmit={loginHandler} className="space-y-12 ng-untouched ng-pristine ng-valid">
               <div className="space-y-4">
                 <div>
-                  <label htmlFor='email' className="block mb-2  text-left">Email address</label>
+                  <label htmlFor='email' className="block mb-2  text-left">Email Address</label>
                   <input type="email" name="email" id="email" placeholder="leroy@jenkins.com" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900" />
                 </div>
                 <div>
@@ -107,7 +107,7 @@ const Login = () => {
                 <button onClick={googleHandler} className=' rounded-md'> <FaGoogle className='w-10 h-6 hover:text-blue-600 font-bold' /></button>
                 <button onClick={gitHubHandler} className='rounded-md'> <FaGithub className='w-10 h-7 hover:text-blue-600 font-bold' /></button>
               </div>
-              <p className="px-6 text-sm text-center dark:text-gray-900">Don't have an account yet?
+              <p className="px-6 text-sm text-center dark:text-gray-900">Don't have an account?
                 <a rel="noopener noreferrer" href="/register" className="hover:underline dark:text-indigo-800"> Create Account</a>.
               </p>
             </div>

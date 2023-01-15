@@ -1,9 +1,11 @@
 import React, { useContext, } from 'react';
-import { AuthContext } from '../../Context/Context';
+import { AuthContext } from '../../contexts/AuthProvider';
+
 import Navbar from '../Navbar/Navbar';
 
 const Profile = () => {
-    const { user } = useContext(AuthContext)
+    
+    const { user } = useContext(AuthContext);
     
     return (
         <>

@@ -13,16 +13,6 @@ const Categories = () => {
         .then(data => setCategories(data))
     }, [])
     return (
-        // <div> 
-        //     {
-        //         categories.map(category => <p className='font-bold' key={category.category_id}>
-        //             <Link to={`/category/${category.category_id}`}>
-        //                 {category.name}
-        //             </Link>
-        //         </p>)   ,
-        //     }
-         
-        // </div>
         <div>
         {
             categories.map(category =>

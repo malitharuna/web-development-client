@@ -27,13 +27,13 @@ const CourseDetails = () => {
                         </p>
                         <p className="mt-0 text-justify mb-8">{details}</p>
                         <div className='flex flex-col-reverse md:flex-row justify-between md:mb-2'>
-                            <div className='flex content-center'>
-                                {/* <img className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500" src={Instructor.img} alt="" /> */}
-                                {/* <div className='ml-3'>
+                            {/* <div className='flex content-center'>
+                                <img className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500" src={Instructor.img} alt="" />
+                                <div className='ml-3'>
                                     <p className='font-medium'>Author Name</p>
                                     <p> {Instructor.name}</p>
-                                </div> */}
-                            </div>
+                                </div>
+                            </div> */}
                             <div className='flex justify-between items-center mb-3 md:mt-0'>
                                 <p className='text-blue-700 font-medium mr-11'>Price: {price}</p>
                                 <p className='text-blue-700 inline-flex relative'>Rating: {rating}<FaStar className='text-yellow-500 absolute right-[-18px] top-1' /></p>

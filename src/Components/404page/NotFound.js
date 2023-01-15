@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const NotFound = () => {
     return (
-        <div className='className="px-8 py-3 font-semibold rounded'>
+        <div className='className="px-8 py-3 font-semibold text-center  rounded'>
             <h1>OOps !! Sorry</h1>
            
             <img className="p-0 mx-auto w-1/3  rounded" src='https://www.pngitem.com/pimgs/m/255-2550411_404-error-images-free-png-transparent-png.png' alt='404'/>

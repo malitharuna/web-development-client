@@ -11,7 +11,9 @@ import Login from "../../Components/Login/Login";
 import Register from "../../Components/Register/Register";
 import Main from "../../layout/Main";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
-// import Profile from "../../Pages/Others/Profile/Profile";
+import Profile from "../../Components/Profile/Profile";
+
+
 
 
 
@@ -56,6 +58,10 @@ export const routes = createBrowserRouter([
     {
         path: '/login',
         element: <Login></Login>
+    },
+    {
+        path: '/profile',
+        element: <Profile></Profile>
     },
     {
         path: '/blogs',
