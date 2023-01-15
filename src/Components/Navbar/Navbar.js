@@ -70,9 +70,9 @@ const Navbar = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to="/blog"
-                                    aria-label="Blog"
-                                    title="Blog"
+                                    to="/blogs"
+                                    aria-label="Blogs"
+                                    title="Blogs"
                                     className={({ isActive }) =>
                                         isActive
                                             ? "text-red-600 font-medium text-xl tracking-wide hover:text-teal-accent-400"

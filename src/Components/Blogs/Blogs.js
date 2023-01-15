@@ -18,7 +18,6 @@ const Blogs = () => {
                         <p className="mt-1 text-gray-800 text-justify">Firebase helps you develop high-quality apps,and highly Secure. Each feature works independently, and they work even better together.
 
                             <span>
-
                             </span></p>
                     </div>
                     <div>

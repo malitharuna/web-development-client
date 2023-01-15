@@ -10,11 +10,9 @@ import Home from "../../Components/Home/Home";
 import Login from "../../Components/Login/Login";
 import Register from "../../Components/Register/Register";
 import Main from "../../layout/Main";
-import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Profile from "../../Components/Profile/Profile";
-
-
-
+import Pdf from "../../Components/Pdf/Pdf";
+import PrivateRoute from '../../Routes/PrivateRoute/PrivateRoute';
 
 
 export const routes = createBrowserRouter([
@@ -46,9 +44,8 @@ export const routes = createBrowserRouter([
             {
                 path: '/course/details/:id',
                 loader: ({ params }) => fetch(`http://localhost:5000/course/details/${params.id}`),
-                element: <CourseDetails></CourseDetails>,
-            }
-          
+                element:  <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>
+            } 
         ]
     },
     {
@@ -60,8 +57,13 @@ export const routes = createBrowserRouter([
         element: <Login></Login>
     },
     {
+        path: '/course/download/pdf/:id',
+        loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`),
+        element: <PrivateRoute><Pdf></Pdf> </PrivateRoute>
+    },
+    {
         path: '/profile',
-        element: <Profile></Profile>
+        element: <PrivateRoute><Profile></Profile></PrivateRoute>
     },
     {
         path: '/blogs',
