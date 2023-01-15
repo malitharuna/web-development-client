@@ -84,16 +84,16 @@ const Navbar = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to="/about us"
-                                    aria-label="about"
-                                    title="about us"
+                                    to="/faq"
+                                    aria-label="FAQ"
+                                    title="FAQ"
                                     className={({ isActive }) =>
                                         isActive
                                             ? "text-red-600 font-medium text-xl tracking-wide hover:text-teal-accent-400"
                                             : "font-medium text-xl tracking-wide text-gray-900 transition-colors duration-200 hover:text-teal-accent-400"
                                     }
                                 >
-                                    About Us
+                                    FAQ
                                 </NavLink>
                             </li>
 

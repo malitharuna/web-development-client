@@ -13,6 +13,7 @@ import Main from "../../layout/Main";
 import Profile from "../../Components/Profile/Profile";
 import Pdf from "../../Components/Pdf/Pdf";
 import PrivateRoute from '../../Routes/PrivateRoute/PrivateRoute';
+import Faq from "../../Components/FAQ/Faq";
 
 
 export const routes = createBrowserRouter([
@@ -47,6 +48,10 @@ export const routes = createBrowserRouter([
                 element:  <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>
             } 
         ]
+    },
+    {
+        path: '/faq',
+        element: <Faq></Faq>
     },
     {
         path:'/register',
